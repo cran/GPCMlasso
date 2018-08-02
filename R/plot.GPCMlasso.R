@@ -29,8 +29,7 @@
 #' @param equal_range A logical value indicating whether for each plot equal limits 
 #' on the y-axis shall be used.
 #' @param ... Further plot arguments.
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}\cr
-#' \url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
 #' @seealso \code{\link{GPCMlasso}}
 #' @examples
 #' data(tenseness_small)
@@ -126,8 +125,12 @@ plot.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"),
     gamma.start <- q[1]+I
   }
   
-  gamma <- coefs[,gamma.start:(gamma.start+n.dif.par-1)]
+  if(x$main.effects){
+    gamma.start <- gamma.start + m
+  }
   
+  gamma <- coefs[,gamma.start:(gamma.start+n.dif.par-1)]
+
   
   if (is.null(columns)) {
     cols <- floor(sqrt(items_per_page))
@@ -144,13 +147,14 @@ plot.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"),
   par(mfrow=c(rows,cols),xpd=TRUE)
   
   for(u in 1:I){
-    if(u %in% items){
+
+
       if(x$DSF){
         par.item <- q[u]*m
       }else{
         par.item <- m
       }
-      
+    if(u %in% items){
     plot.item(gamma[,start.gamma:(start.gamma+par.item-1), drop = FALSE], 
            x$item.names[u], par.item, x$control$lambda, g.range, 
            equal_range, criterion, x.names, log.lambda,
@@ -224,7 +228,7 @@ plot.item <- function(item, name, par.item, lambda, g.range, equal_range,
             x.lab1, y.lab2 ,col="gray")
   
   
-  ## used for illutrating plot in paper
+  ## used for illustrating plot in paper
   # segments( 3, i.lim[1],
   #           3, i.lim[2] ,col="gray",lty=2, lwd = 2)
   

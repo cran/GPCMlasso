@@ -11,8 +11,7 @@
 #' 
 #' @name GPCMlasso-package
 #' @docType package
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}\cr
-#' \url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
 #' @seealso \code{\link{GPCMlasso}}
 #' @keywords package Partial Credit DIF GPCMlasso GPCM DSF
 #' @examples

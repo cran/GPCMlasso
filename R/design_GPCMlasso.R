@@ -5,7 +5,7 @@ createResponse <- function(Y){
 }
 
 design_GPCMlasso <- function(formula = formula, Y=Y, data = data, RSM = RSM, 
-                             GPCM = GPCM, DSF = DSF, all.dummies = TRUE){
+                             GPCM = GPCM, DSF = DSF, all.dummies = TRUE, main.effects = main.effects){
 
   ## extract covariates
   if(all.dummies){
@@ -69,7 +69,7 @@ design_GPCMlasso <- function(formula = formula, Y=Y, data = data, RSM = RSM,
   X <- scale(X, center = FALSE, scale = apply(X, 2, sd, na.rm = TRUE))
   sd.vec <- attributes(X)$scale
   
-  sd.vec <- create.sd.vec(sd.vec, DSF, px, n_sigma, I, q) 
+  sd.vec <- create.sd.vec(sd.vec, DSF, px, n_sigma, I, q, main.effects) 
   
   ## create design matrix for basic item parameters
   if(!RSM){
@@ -94,6 +94,13 @@ design_GPCMlasso <- function(formula = formula, Y=Y, data = data, RSM = RSM,
     acoefs <- matrix(0,nrow=px,ncol=1)
   }
   
+  if(main.effects){
+    design.main <- matrix(rep(X, each = sum(q)),ncol = ncol(X))
+    designX <- cbind(design.main, designX)
+    acoefs <- rbind(matrix(0, ncol = ncol(acoefs), nrow = ncol(design.main)), acoefs)
+    px <- px + ncol(X)
+  }
+  
  
   ret.list <- list(q = q, I = I, m = m, px = px, n = n, response = response,
                    design = design, designX = designX, sd.vec = sd.vec,
@@ -103,12 +110,15 @@ design_GPCMlasso <- function(formula = formula, Y=Y, data = data, RSM = RSM,
   return(ret.list)
 }
 
-create.sd.vec <- function(sd.vec, DSF, px, n_sigma, I, q){
+create.sd.vec <- function(sd.vec, DSF, px, n_sigma, I, q, main.effects){
 
   if(DSF){
     new_vec <- rep(sd.vec, sum(q))
   }else{
     new_vec <- rep(sd.vec, I)
+  }
+  if(main.effects){
+    new_vec <- c(sd.vec, new_vec)
   }
   new_vec <- c(rep(1,px-n_sigma),new_vec,rep(1,n_sigma))
   new_vec

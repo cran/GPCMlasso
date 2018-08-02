@@ -107,6 +107,5 @@ plot(rm.cv)
 }
 }
 \author{
-Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}\cr
-\url{http://schauberger.userweb.mwn.de/}
+Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}
 }

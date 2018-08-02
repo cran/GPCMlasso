@@ -273,6 +273,7 @@ sim_cor <- function(model, m, I, k, n, gamma, sigma, seed = NULL){
   set.seed(1860)
   
   X <- c()
+
   for(i in 1:m){
     if(i%%2 == 1){
       X <- cbind(X, mat1[,i])

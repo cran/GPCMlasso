@@ -31,7 +31,8 @@ help_fit <- function(model, Y, l.lambda, start, loglik_fun, score_fun, log_score
                         GHweights, GHnodes, acoefs, lambda2, cvalue, n_sigma,
                         l.bound, trace, log.lambda, weight.penalties, scale_fac = scale_fac,
                         ada.lambda, lambda.min, ada.power, cores,
-                        null_thresh, DSF, gradtol,iterlim, steptol){
+                        null_thresh, DSF, gradtol,iterlim, steptol, main.effects){
+
 
   ## get initial weight parameters   
   weight <- rep(1,ncol(acoefs))
@@ -113,10 +114,13 @@ help_fit <- function(model, Y, l.lambda, start, loglik_fun, score_fun, log_score
     }
     
       alpha.start <- c(delta.start,rep(0,ncol(designX)),abs(sigma.start))
-    
+
       alpha.null <- alpha.start[rowSums(abs(acoefs))==0]
       p_null <- length(alpha.null)
       design_null <- matrix(0,0,0)
+      if(main.effects & ncol(designX)>0){
+        design_null <- designX[,1:m, drop = FALSE]
+      }
       acoefs_null <- matrix(0,nrow=p_null,ncol=1)
       bound_null <- l.bound[rowSums(abs(acoefs))==0]
 

@@ -21,6 +21,8 @@
 #' @param control Control argument to specify further arguments for the algorithm
 #' and numerical optimization, specified by \code{\link{ctrl_GPCMlasso}}.
 #' @param cv Should cross-validation be performed? Cross-validation can be used as an alternative to BIC to select the optimal tuning parameter.
+#' @param main.effects Should also main effects of the variables be included in the model? Default is \code{TRUE}. Here, positive parameter estimates correspond 
+#' to an increase of the respective trait if the variable increases.
 #' @return 
 #' \item{coefficients}{Matrix containing all parameters for the GPCMlasso model, one row
 #' per tuning parameter lambda. Due to the penalty the parameters are scaled and, therefore,
@@ -43,8 +45,7 @@
 #' \item{coef.rescal}{Matrix containing all rescaled parameters for the GPCMlasso model, one row
 #' per tuning parameter lambda. In contrast to \code{coefficients}, all parameters are rescaled back
 #' to their original scales.}
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}\cr
-#' \url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
 #' @seealso \code{\link{GPCMlasso-package}}, \code{\link{ctrl_GPCMlasso}}, \code{\link{print.GPCMlasso}}, 
 #' \code{\link{plot.GPCMlasso}}, \code{\link{predict.GPCMlasso}}, \code{\link{trait.posterior}}
 #' @keywords GPCMlasso
@@ -94,7 +95,7 @@
 #' }
 GPCMlasso <- function(formula, data, DSF = FALSE, 
                       model = c("PCM","RSM","GPCM","GRSM","RM","2PL"),
-                      control = ctrl_GPCMlasso(), cv = FALSE){
+                      control = ctrl_GPCMlasso(), cv = FALSE, main.effects = TRUE){
 
   ### save old contrasts to set them back to default later
   # old.contrasts <- options()$contrasts
@@ -139,11 +140,12 @@ GPCMlasso <- function(formula, data, DSF = FALSE,
     stop("Models RSM and GRSM cannot be used for unequal numbers of response categories!")
   }
   
-  
+
   ## get design matrices and all further parameters  
   design_list <- design_GPCMlasso(formula = formula, data = data, 
                                   Y = Y, RSM = RSM, GPCM = GPCM, 
-                                  DSF = DSF, all.dummies = control$all.dummies)
+                                  DSF = DSF, all.dummies = control$all.dummies,
+                                  main.effects = main.effects)
 
   
   ## if no covariates are used, we don't need lambda or adaptive
@@ -170,7 +172,7 @@ GPCMlasso <- function(formula, data, DSF = FALSE,
   ## get fitted parameters and logliks
   fit <- fit_GPCMlasso(model = model,loglik_fun = loglik_fun, score_fun = score_fun, log_score_fun,
                        design_list = design_list, 
-                       control = control,  start = NULL, scale_fac = 1)
+                       control = control,  start = NULL, scale_fac = 1, main.effects = main.effects)
   
   ## update lambda if lambda was not specified in advance
   if(is.null(control$lambda)){
@@ -207,7 +209,7 @@ GPCMlasso <- function(formula, data, DSF = FALSE,
                    DSF = DSF, formula = formula,
                    item.names = item.names, Y = Y, design_list = design_list,
                    AIC = AIC, BIC = BIC, cAIC = cAIC, df = df, 
-                   coef.rescal = coef.rescal)
+                   coef.rescal = coef.rescal, main.effects = main.effects)
   
   class(ret.list) <- "GPCMlasso"
   

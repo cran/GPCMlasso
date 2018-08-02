@@ -121,8 +121,7 @@ person_i <- function(person, person.index, all.lin.preds, sigma,
 #' for more details see \code{\link{pcubature}}.
 #' @return 
 #' \item{}{Vector containing all estimates of trait/person parameters.} 
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}\cr
-#' \url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
 #' @seealso \code{\link{GPCMlasso}} \code{\link{GPCMlasso-package}}
 #' @keywords GPCMlasso
 #' @examples

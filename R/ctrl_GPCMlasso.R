@@ -28,8 +28,7 @@
 #' @param iterlim Parameter to tune optimization accuracy, for details see \code{\link{nlm}}.
 #' @param precision Number of decimal places used to round coefficient estimates. 
 #' @param all.dummies Should (in case for factors with more than 2 categories) the dummy variables for all categories be included in the design matrix? If \code{all.dummies = TRUE}, the dependence on the reference category is eliminated for multi-categorical covariates.
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}\cr
-#' \url{http://schauberger.userweb.mwn.de/}
+#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
 #' @examples
 #' data(tenseness_small)
 #' 

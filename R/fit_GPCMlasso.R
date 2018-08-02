@@ -1,7 +1,7 @@
 fit_GPCMlasso <- function(model = model, loglik_fun = loglikPCMlasso, score_fun = scorePCMlasso,
                           log_score_fun = loglikscorePCMlasso,
                           design_list = design_list, 
-                          control = control, start = NULL, scale_fac = 1){
+                          control = control, start = NULL, scale_fac = 1, main.effects = TRUE){
 
   ## start with-expression to use everything from design_list and control
   with(c(design_list,control),{
@@ -23,7 +23,8 @@ fit_GPCMlasso <- function(model = model, loglik_fun = loglikPCMlasso, score_fun 
                       Q,q,I,n,m,response,design,designX, px,
                       GHweights, GHnodes, acoefs, lambda2, cvalue, n_sigma,
                       l.bound, trace, log.lambda, weight.penalties, scale_fac, ada.lambda,
-                      lambda.min, ada.power, cores, null_thresh, DSF, gradtol, iterlim, steptol)
+                      lambda.min, ada.power, cores, null_thresh, DSF, gradtol, iterlim, steptol,
+                      main.effects = main.effects)
   
   weight <- help_me$weight
   alpha.start <- help_me$alpha.start

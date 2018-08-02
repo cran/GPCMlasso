@@ -4,11 +4,14 @@
 #include <Rcpp.h>
 
 #include <math.h>    
-#include <omp.h>
 #include <vector>
 #include <algorithm>
 #include <assert.h>
 #include <iostream>
+
+#ifdef _OPENMP
+#include <omp.h>
+#endif
 
 using namespace Rcpp;
 using namespace arma;
@@ -148,8 +151,12 @@ double loglikPCMlasso(arma::vec alpha,
     // shorten alpha
   alpha = alpha(span(0,px-n_sigma-1));
   
+  
   // initialize number of different threads
-  omp_set_num_threads(cores);
+#ifdef _OPENMP
+  // if(cores > 1)
+    omp_set_num_threads(cores);
+#endif
   
   vec yi; mat Xi; mat eta_i2; vec eta_i;
   mat Xij; vec eta_ij; 
@@ -158,8 +165,10 @@ double loglikPCMlasso(arma::vec alpha,
   double j; double k; int qk; int i;
   
   // iterate through persons
+#ifdef _OPENMP
 #pragma omp parallel for private(i, qk, j, k,  pos, yi, Xi, eta_i2, eta_i, Xij, eta_ij,  mu_i, yi_k, eta_ijk, mu_k, help_pow, prods_i, pos_person) shared(f)
-  for(i=0; i<n ;i++){
+#endif
+    for(i=0; i<n ;i++){
     pos = i*sumq;
     
     // initialize response for person i
@@ -279,7 +288,11 @@ arma::vec scorePCMlasso(arma::vec alpha,
   alpha = alpha(span(0,px-n_sigma-1));
 
   // initialize number of different threads
-  omp_set_num_threads(cores);
+#ifdef _OPENMP
+  // if(cores > 1)
+    omp_set_num_threads(cores);
+#endif
+  
   
   vec yi; mat Xi; mat eta_i2; vec eta_i;
   mat Xij; vec eta_ij; mat D_i; mat SigmaInv_i; 
@@ -288,7 +301,9 @@ arma::vec scorePCMlasso(arma::vec alpha,
   double help_me; int j; int k; int qk; int i;
   
   // iterate through persons
+#ifdef _OPENMP
 #pragma omp parallel for private(i, qk, j, k, help_me, pos, yi, Xi, eta_i2, eta_i, Xij, eta_ij, D_i, SigmaInv_i, mu_i, yi_k, eta_ijk, mu_k, help_pow, prods_i, cij_help, pos_person) shared(help_mat, cij_mat)
+#endif  
   for(i=0; i<n ;i++){
     pos = i*sumq;
     
@@ -417,16 +432,21 @@ double loglikDIFlasso(arma::vec alpha,
     // shorten alpha
   alpha = alpha(span(0,px-n_sigma-1));
 
-
   // initialize number of different threads
-  omp_set_num_threads(cores);
+#ifdef _OPENMP
+//   if(cores > 1)
+    omp_set_num_threads(cores);
+#endif
+  
   
   vec yi; mat Xi; vec eta_i; vec prods_i;
   vec eta_ij; vec mu_ij; 
   int pos; int j; int i;
   
   // iterate through persons
+#ifdef _OPENMP
 #pragma omp parallel for private(i, j, pos, yi, Xi, eta_i, eta_ij, mu_ij,prods_i) shared(f)
+#endif  
   for(i=0; i<n ;i++){
     pos = i*I;
 
@@ -523,14 +543,20 @@ arma::vec scoreDIFlasso(arma::vec alpha,
   }
 
   // initialize number of different threads
-  omp_set_num_threads(cores);
+#ifdef _OPENMP
+//   if(cores > 1)
+    omp_set_num_threads(cores);
+#endif
+  
   
   vec yi; mat Xi; mat eta_i2; vec eta_i; vec prods_i;
   mat Xij; vec eta_ij; vec mu_ij; 
   double cij_help; int pos; int j; int i;
   
   // iterate through persons
+#ifdef _OPENMP
 #pragma omp parallel for private(i, j, pos, yi, Xi, eta_i2, eta_i, Xij, eta_ij, mu_ij, prods_i, cij_help) shared(help_mat, cij_mat)
+#endif
   for(i=0; i<n ;i++){
     pos = i*I;
 
@@ -656,7 +682,10 @@ Rcpp::List loglikscorePCMlasso(arma::vec alpha,
   alpha = alpha(span(0,px-n_sigma-1));
 
   // initialize number of different threads
-  omp_set_num_threads(cores);
+#ifdef _OPENMP
+//   if(cores > 1)
+    omp_set_num_threads(cores);
+#endif
   
   vec yi; mat Xi; mat eta_i2; vec eta_i;
   mat Xij; vec eta_ij; mat D_i; mat SigmaInv_i; 
@@ -665,7 +694,9 @@ Rcpp::List loglikscorePCMlasso(arma::vec alpha,
   double help_me; int j; int k; int qk; int i;
   
   // iterate through persons
+#ifdef _OPENMP
 #pragma omp parallel for private(i, qk, j, k, help_me, pos, yi, Xi, eta_i2, eta_i, Xij, eta_ij, D_i, SigmaInv_i, mu_i, yi_k, eta_ijk, mu_k, help_pow, prods_i, cij_help, pos_person) shared(help_mat, cij_mat, f)
+#endif
   for(i=0; i<n ;i++){
     pos = i*sumq;
     
@@ -840,14 +871,20 @@ Rcpp::List loglikscoreDIFlasso(arma::vec alpha,
   }
 
   // initialize number of different threads
-  omp_set_num_threads(cores);
+#ifdef _OPENMP
+//   if(cores > 1)
+    omp_set_num_threads(cores);
+#endif
+  
   
   vec yi; mat Xi; mat eta_i2; vec eta_i; vec prods_i;
   mat Xij; vec eta_ij; vec mu_ij; 
   double cij_help; int pos; int j; int i;
   
   // iterate through persons
+#ifdef _OPENMP
 #pragma omp parallel for private(i, j, pos, yi, Xi, eta_i2, eta_i, Xij, eta_ij, mu_ij, prods_i, cij_help) shared(help_mat, cij_mat, f)
+#endif
   for(i=0; i<n ;i++){
     pos = i*I;
 

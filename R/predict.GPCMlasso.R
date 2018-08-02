@@ -17,8 +17,7 @@
 #' @param type Type "link" gives vectors of linear predictors for separate categories 
 #' (of length $k_i-1$) and type "response" gives the respective probabilities (of length $k_i$).  
 #' @param ... Further predict arguments.
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}\cr
-#' \url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
 #' @seealso \code{\link{GPCMlasso}}
 #' @examples
 #' data(tenseness_small)

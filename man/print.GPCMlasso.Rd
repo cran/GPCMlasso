@@ -69,6 +69,5 @@ plot(rm.cv)
 \code{\link{GPCMlasso}}
 }
 \author{
-Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}\cr
-\url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}
 }

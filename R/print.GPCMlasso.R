@@ -9,8 +9,7 @@
 #' model according to cross-validation is used. Only the parameter estimates from
 #' the chosen optimal model are printed.
 #' @param ... Further print arguments.
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}\cr
-#' \url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
 #' @seealso \code{\link{GPCMlasso}}
 #' @examples
 #' data(tenseness_small)
@@ -58,7 +57,7 @@
 #' }
 print.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"), ...){
   with(x$design_list,{
-  
+
     select <- match.arg(select, c("BIC", "AIC", "cAIC", "cv"))
 
     if(select=="BIC"){
@@ -108,6 +107,14 @@ print.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"), ...){
     }
   }
   
+  if(x$main.effects & m > 0){
+    mains <- coefs[start.gamma:(start.gamma+m-1)]
+    names(mains) <- x.names
+    start.gamma <- start.sigma <- start.gamma + m
+  }else{
+    mains <- NA
+  }    
+      
   n.dif.par <- I*m
   if(x$DSF){
     n.dif.par <- sum(q)*m
@@ -116,11 +123,11 @@ print.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"), ...){
   if(m>0){
     if(x$DSF){
       if(sum(diff(q))==0){
-        gamma <- matrix(coefs[start.gamma:(start.gamma+n.dif.par-1)],byrow=TRUE,nrow=I)
+        gamma <- matrix(coefs[start.gamma:(start.gamma + n.dif.par - 1)], byrow = TRUE, nrow = I)
         rownames(gamma) <- x$item.names
-        colnames(gamma) <- paste(rep(x.names,q[1]),rep(1:q[1],each=length(x.names)),sep=".")
-        index.gamma <- c(t(matrix(1:(m*q[1]),nrow=m)))
-        gamma <- gamma[,index.gamma]
+        colnames(gamma) <- paste(rep(x.names, q[1]), rep(1:q[1], each = length(x.names)), sep = ".")
+        index.gamma <- c(t(matrix(1:(m*q[1]), nrow = m)))
+        gamma <- gamma[, index.gamma]
       }else{
         gamma <- list()
         coefs.pen <- coefs[start.gamma:(start.gamma+n.dif.par-1)]
@@ -169,8 +176,13 @@ print.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"), ...){
     cat("\n")
     cat("Category parameters:","\n")
     print(alpha, ...)
-  })
-  cat("\n")
+  cat("\n")  })
+  
+  suppressWarnings(if(!is.na(mains[1])){
+    cat("\n")
+    cat("Main covariate effects:","\n")
+    print(mains, ...)
+  cat("\n")  })
   
   
   suppressWarnings(if(!is.na(gamma[1])){

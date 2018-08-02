@@ -5,7 +5,8 @@
 \title{GPCMlasso}
 \usage{
 GPCMlasso(formula, data, DSF = FALSE, model = c("PCM", "RSM", "GPCM",
-  "GRSM", "RM", "2PL"), control = ctrl_GPCMlasso(), cv = FALSE)
+  "GRSM", "RM", "2PL"), control = ctrl_GPCMlasso(), cv = FALSE,
+  main.effects = TRUE)
 }
 \arguments{
 \item{formula}{Formula to indicate which items are considered and which covariates 
@@ -28,6 +29,9 @@ parameters between items.}
 and numerical optimization, specified by \code{\link{ctrl_GPCMlasso}}.}
 
 \item{cv}{Should cross-validation be performed? Cross-validation can be used as an alternative to BIC to select the optimal tuning parameter.}
+
+\item{main.effects}{Should also main effects of the variables be included in the model? Default is \code{TRUE}. Here, positive parameter estimates correspond 
+to an increase of the respective trait if the variable increases.}
 }
 \value{
 \item{coefficients}{Matrix containing all parameters for the GPCMlasso model, one row
@@ -109,7 +113,6 @@ plot(rm.cv)
 \code{\link{plot.GPCMlasso}}, \code{\link{predict.GPCMlasso}}, \code{\link{trait.posterior}}
 }
 \author{
-Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}\cr
-\url{http://www.semsto.statistik.uni-muenchen.de/personen/doktoranden/schauberger/index.html}
+Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}
 }
 \keyword{GPCMlasso}
