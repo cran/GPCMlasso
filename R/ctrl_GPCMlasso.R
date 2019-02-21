@@ -27,8 +27,10 @@
 #' @param steptol Parameter to tune optimization accuracy, for details see \code{\link{nlm}}.
 #' @param iterlim Parameter to tune optimization accuracy, for details see \code{\link{nlm}}.
 #' @param precision Number of decimal places used to round coefficient estimates. 
-#' @param all.dummies Should (in case for factors with more than 2 categories) the dummy variables for all categories be included in the design matrix? If \code{all.dummies = TRUE}, the dependence on the reference category is eliminated for multi-categorical covariates.
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
+#' @param all.dummies Should (in case of factors with more than 2 categories) the dummy variables for all categories be included in the design matrix? If \code{all.dummies = TRUE}, the dependence on the reference category is eliminated for multi-categorical covariates.
+#' @author Gunther Schauberger\cr \email{gunther.schauberger@@tum.de}
+#' @references Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
+#' Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
 #' @examples
 #' data(tenseness_small)
 #' 

@@ -121,7 +121,9 @@ person_i <- function(person, person.index, all.lin.preds, sigma,
 #' for more details see \code{\link{pcubature}}.
 #' @return 
 #' \item{}{Vector containing all estimates of trait/person parameters.} 
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
+#' @author Gunther Schauberger\cr \email{gunther.schauberger@@tum.de}
+#' @references Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
+#' Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
 #' @seealso \code{\link{GPCMlasso}} \code{\link{GPCMlasso-package}}
 #' @keywords GPCMlasso
 #' @examples
@@ -201,7 +203,6 @@ trait.posterior <- function(model, coefs = NULL, cores = 25, tol = 1e-4) {
   
   ## create linear predictor without theta
   all.lin.preds <- lin_pred(model, coef_short, sigma)  
-  
 
   estimates <- person.fit(n, I, q, Y, sigma, person.index, 
     all.lin.preds, cores, tol)

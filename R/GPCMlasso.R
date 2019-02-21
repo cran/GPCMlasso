@@ -45,7 +45,9 @@
 #' \item{coef.rescal}{Matrix containing all rescaled parameters for the GPCMlasso model, one row
 #' per tuning parameter lambda. In contrast to \code{coefficients}, all parameters are rescaled back
 #' to their original scales.}
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
+#' @author Gunther Schauberger\cr \email{gunther.schauberger@@tum.de}
+#' @references Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
+#' Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
 #' @seealso \code{\link{GPCMlasso-package}}, \code{\link{ctrl_GPCMlasso}}, \code{\link{print.GPCMlasso}}, 
 #' \code{\link{plot.GPCMlasso}}, \code{\link{predict.GPCMlasso}}, \code{\link{trait.posterior}}
 #' @keywords GPCMlasso

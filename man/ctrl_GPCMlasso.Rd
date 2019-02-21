@@ -56,7 +56,7 @@ penalty. Should be sufficiently small. For details see
 
 \item{precision}{Number of decimal places used to round coefficient estimates.}
 
-\item{all.dummies}{Should (in case for factors with more than 2 categories) the dummy variables for all categories be included in the design matrix? If \code{all.dummies = TRUE}, the dependence on the reference category is eliminated for multi-categorical covariates.}
+\item{all.dummies}{Should (in case of factors with more than 2 categories) the dummy variables for all categories be included in the design matrix? If \code{all.dummies = TRUE}, the dependence on the reference category is eliminated for multi-categorical covariates.}
 }
 \description{
 Control parameters for penalty terms and for tuning the fitting algorithm.
@@ -106,6 +106,10 @@ rm.cv
 plot(rm.cv)
 }
 }
+\references{
+Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
+Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
+}
 \author{
-Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}
+Gunther Schauberger\cr \email{gunther.schauberger@tum.de}
 }

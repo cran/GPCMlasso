@@ -9,7 +9,9 @@
 #' model according to cross-validation is used. Only the parameter estimates from
 #' the chosen optimal model are printed.
 #' @param ... Further print arguments.
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
+#' @author Gunther Schauberger\cr \email{gunther.schauberger@@tum.de}
+#' @references Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
+#' Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
 #' @seealso \code{\link{GPCMlasso}}
 #' @examples
 #' data(tenseness_small)
@@ -200,6 +202,8 @@ print.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"), ...){
   cat("Log-likelihood:","\n")
   cat(loglik)
   cat("\n")
+  
+  invisible(list(x = x, gamma = gamma))
   })
-  invisible(x)
+
 }

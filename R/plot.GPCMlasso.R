@@ -29,7 +29,9 @@
 #' @param equal_range A logical value indicating whether for each plot equal limits 
 #' on the y-axis shall be used.
 #' @param ... Further plot arguments.
-#' @author Gunther Schauberger\cr \email{gunther@@stat.uni-muenchen.de}
+#' @author Gunther Schauberger\cr \email{gunther.schauberger@@tum.de}
+#' @references Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
+#' Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
 #' @seealso \code{\link{GPCMlasso}}
 #' @examples
 #' data(tenseness_small)

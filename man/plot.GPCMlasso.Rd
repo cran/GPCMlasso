@@ -91,9 +91,13 @@ rm.cv
 plot(rm.cv)
 }
 }
+\references{
+Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
+Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
+}
 \seealso{
 \code{\link{GPCMlasso}}
 }
 \author{
-Gunther Schauberger\cr \email{gunther@stat.uni-muenchen.de}
+Gunther Schauberger\cr \email{gunther.schauberger@tum.de}
 }
