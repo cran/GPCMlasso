@@ -8,8 +8,8 @@ ctrl_GPCMlasso(log.lambda = TRUE, lambda = NULL, l.lambda = 50,
   lambda.min = 0.1, adaptive = TRUE, weight.penalties = TRUE,
   ada.lambda = 1e-04, ada.power = 1, Q = 15, lambda2 = 1e-04,
   cvalue = 1e-05, trace = TRUE, folds = 10, cores = 25,
-  null_thresh = 0.01, gradtol = 1e-06, steptol = 1e-06, iterlim = 500,
-  precision = 3, all.dummies = FALSE)
+  null_thresh = 0.01, gradtol = 1e-06, steptol = 1e-06,
+  iterlim = 500, precision = 3, all.dummies = FALSE)
 }
 \arguments{
 \item{log.lambda}{Should the grid of tuning parameters be created on a log scale?}
@@ -108,7 +108,7 @@ plot(rm.cv)
 }
 \references{
 Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
-Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, to appear
+Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, \url{https://link.springer.com/article/10.3758/s13428-019-01224-2}
 }
 \author{
 Gunther Schauberger\cr \email{gunther.schauberger@tum.de}
