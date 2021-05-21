@@ -4,7 +4,8 @@
 \name{tenseness_small}
 \alias{tenseness_small}
 \title{Subset of tenseness data from the Freiburg Complaint Checklist}
-\format{A data frame containing data from the Freiburg Complaint Checklist a subset of 200 observations. 
+\format{
+A data frame containing data from the Freiburg Complaint Checklist a subset of 200 observations. 
 The complete data set with 1847 observations can be found in \code{\link{tenseness}}.
 All items refer to the scale \emph{Tenseness} and are measured on a 5-point Likert scale where low numbers 
 correspond to low frequencies or low intensitites of the respective complaint and vice versa. 
@@ -16,7 +17,8 @@ correspond to low frequencies or low intensitites of the respective complaint an
 \item{Restless_hands}{Do you notice that your hands are restless?}
 \item{Gender}{Gender of the person}
 \item{Age}{Age of the person}
- }}
+ }
+}
 \source{
 ZPID (2013). PsychData of the Leibniz Institute for Psychology Information ZPID. Trier: Center for Research Data in Psychology.
 

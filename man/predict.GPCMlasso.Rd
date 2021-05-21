@@ -4,8 +4,13 @@
 \alias{predict.GPCMlasso}
 \title{Predict function for GPCMlasso}
 \usage{
-\method{predict}{GPCMlasso}(object, coefs = NULL, newdata = NULL,
-  type = c("link", "response"), ...)
+\method{predict}{GPCMlasso}(
+  object,
+  coefs = NULL,
+  newdata = NULL,
+  type = c("link", "response"),
+  ...
+)
 }
 \arguments{
 \item{object}{\code{GPCMlasso} object}

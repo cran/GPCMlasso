@@ -4,12 +4,28 @@
 \alias{ctrl_GPCMlasso}
 \title{Control function for GPCMlasso}
 \usage{
-ctrl_GPCMlasso(log.lambda = TRUE, lambda = NULL, l.lambda = 50,
-  lambda.min = 0.1, adaptive = TRUE, weight.penalties = TRUE,
-  ada.lambda = 1e-04, ada.power = 1, Q = 15, lambda2 = 1e-04,
-  cvalue = 1e-05, trace = TRUE, folds = 10, cores = 25,
-  null_thresh = 0.01, gradtol = 1e-06, steptol = 1e-06,
-  iterlim = 500, precision = 3, all.dummies = FALSE)
+ctrl_GPCMlasso(
+  log.lambda = TRUE,
+  lambda = NULL,
+  l.lambda = 50,
+  lambda.min = 0.1,
+  adaptive = TRUE,
+  weight.penalties = TRUE,
+  ada.lambda = 1e-04,
+  ada.power = 1,
+  Q = 15,
+  lambda2 = 1e-04,
+  cvalue = 1e-05,
+  trace = TRUE,
+  folds = 10,
+  cores = 25,
+  null_thresh = 0.01,
+  gradtol = 1e-06,
+  steptol = 1e-06,
+  iterlim = 500,
+  precision = 3,
+  all.dummies = FALSE
+)
 }
 \arguments{
 \item{log.lambda}{Should the grid of tuning parameters be created on a log scale?}

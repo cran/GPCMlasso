@@ -33,7 +33,6 @@ help_fit <- function(model, Y, l.lambda, start, loglik_fun, score_fun, log_score
                         ada.lambda, lambda.min, ada.power, cores,
                         null_thresh, DSF, gradtol,iterlim, steptol, main.effects){
 
-
   ## get initial weight parameters   
   weight <- rep(1,ncol(acoefs))
 
@@ -183,12 +182,13 @@ help_fit <- function(model, Y, l.lambda, start, loglik_fun, score_fun, log_score
     weight <- as.vector(1/weight)
   }
 
-  if(weight.penalties & length(weight)!=(I*m) & m>0){
-    weight.i <- (q+choose(q,2))/q
-    weight.help <- c(rep(weight.i,q*m), rep(weight.i,choose(q,2)*m))
-    weight.help <- weight.help/(prod(weight.help)^(1/length(weight.help)))
-    weight <- weight/weight.help
-  }
+  # if(weight.penalties & length(weight)!=(I*m) & m>0){
+  #   weight.i <- (q+choose(q,2))/q
+  #   weight.help <- c(rep(weight.i,q*m), rep(weight.i,choose(q,2)*m))
+  #   weight.help <- weight.help/(prod(weight.help)^(1/length(weight.help)))
+  #   weight <- weight/weight.help
+  # }
+
   
   #### find maximal lambda value and make grid
   if(!is.na(l.lambda)){

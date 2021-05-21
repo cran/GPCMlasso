@@ -4,7 +4,8 @@
 \name{tenseness}
 \alias{tenseness}
 \title{Tenseness data from the Freiburg Complaint Checklist}
-\format{A data frame containing data from the Freiburg Complaint Checklist with 1847 observations. 
+\format{
+A data frame containing data from the Freiburg Complaint Checklist with 1847 observations. 
 All items refer to the scale \emph{Tenseness} and are measured on a 5-point Likert scale where low numbers 
 correspond to low frequencies or low intensitites of the respective complaint and vice versa. 
 \describe{ 
@@ -23,7 +24,8 @@ due to the high number of categories income can be treated as a metric variable.
 \item{WestEast}{Is the person from East Germany (former GDR)?}
 \item{Abitur}{Does the person have Abitur (A-levels)?}
 \item{Age}{Age of the person}
- }}
+ }
+}
 \source{
 ZPID (2013). PsychData of the Leibniz Institute for Psychology Information ZPID. Trier: Center for Research Data in Psychology.
 

@@ -4,9 +4,15 @@
 \alias{GPCMlasso}
 \title{GPCMlasso}
 \usage{
-GPCMlasso(formula, data, DSF = FALSE, model = c("PCM", "RSM", "GPCM",
-  "GRSM", "RM", "2PL"), control = ctrl_GPCMlasso(), cv = FALSE,
-  main.effects = TRUE)
+GPCMlasso(
+  formula,
+  data,
+  DSF = FALSE,
+  model = c("PCM", "RSM", "GPCM", "GRSM", "RM", "2PL"),
+  control = ctrl_GPCMlasso(),
+  cv = FALSE,
+  main.effects = TRUE
+)
 }
 \arguments{
 \item{formula}{Formula to indicate which items are considered and which covariates 

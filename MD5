@@ -1,4 +1,4 @@
-5e18e3c4a088838689737efd2a0b9ad1 *DESCRIPTION
+bee8736a25c98d0f6c3d9a742652292a *DESCRIPTION
 9007e887b4afe3e4d6c99d04acd6db3f *NAMESPACE
 894a84e5e6cb7d4948da6b4eaa4712d6 *R/GPCMlasso-package.R
 345ae925e057831019c1a5e84c746c4c *R/GPCMlasso.R
@@ -10,7 +10,7 @@ f62ff9d6340278381131f980ae6bbb9a *R/find.lambda.R
 fb64da74aae2753bc370b839bde0636e *R/fit_GPCMlasso.R
 f4bae0edeb429223fb80cb328ae41578 *R/fit_cv_GPCMlasso.R
 4668fae3955fa4c579298c5af26fbdfc *R/get_designX.R
-7ce623751d1042b13514c867f52d1491 *R/help_fit.R
+fad56239f564c9b3572f36c20b309d11 *R/help_fit.R
 f63df56c52b05fe67f0089f5f3a3b659 *R/person.posterior.R
 734532fbe2e821cf5b99fe9d82be3a45 *R/plot.GPCMlasso.R
 50d3ac010197fb0f10970b9bed64bd93 *R/predict.GPCMlasso.R
@@ -20,13 +20,13 @@ c0dfa699f381f5619f2da6902c3a33de *R/sim_fun.R
 d1b9731bb8d790143a8f94b1265293c3 *data/tenseness.RData
 7df0886f3c79c1d5af0375f3c444e771 *data/tenseness_small.rda
 c498d7ae428db75d70264c866cd06648 *man/GPCMlasso-package.Rd
-db6e5afb45ad2a410f9fd96c3a7c77a3 *man/GPCMlasso.Rd
-7e30dc6ab5f976709b414be66a91e706 *man/ctrl_GPCMlasso.Rd
+7fe7e76973d594cbff0259134bcd8933 *man/GPCMlasso.Rd
+840ec72f942243a28e1772aa8a84b44c *man/ctrl_GPCMlasso.Rd
 a545c72c8be7837729bc328a07fe9a7d *man/plot.GPCMlasso.Rd
-82f3ef461c62ce89c92b358b710407dd *man/predict.GPCMlasso.Rd
+7b8903809664c0e8b5325a859e64bb7e *man/predict.GPCMlasso.Rd
 0a474e25910c0e20ff14c5c8a11e4683 *man/print.GPCMlasso.Rd
-b04c6c6c114a33c97f38a753232f643d *man/tenseness.Rd
-9d040d288993298aad7e0b7402d41eb0 *man/tenseness_small.Rd
+b13edd614492d19ac1c21fd98e59a264 *man/tenseness.Rd
+db9bbb15e0d2c376d0e6a1aeb2349138 *man/tenseness_small.Rd
 1956c8654847a256558d8c8d45dca30d *man/trait.posterior.Rd
 49c5d4d01f75330f7e9f41595e7f5d06 *src/Makevars
 f6e5726bd79222f8b725505026d5e226 *src/Makevars.win
