@@ -20,7 +20,7 @@ model according to cross-validation are used.}
 for more details see \code{\link{pcubature}}.}
 }
 \value{
-\item{}{Vector containing all estimates of trait/person parameters.}
+Vector containing all estimates of trait/person parameters.
 }
 \description{
 Calculates posterior estimates for trait/person parameters using the assumption 

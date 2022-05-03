@@ -6,6 +6,11 @@
 
 using namespace Rcpp;
 
+#ifdef RCPP_USE_GLOBAL_ROSTREAM
+Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
+Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
+#endif
+
 // loglikPCMlasso
 double loglikPCMlasso(arma::vec alpha, arma::vec Y, arma::mat X, arma::mat Z, int Q, arma::vec q, int n, int I, int px, arma::vec GHweights, arma::vec GHnodes, arma::mat acoefs, double lambda, double lambda2, double cvalue, int cores, arma::vec weight, int n_sigma, double scale_fac);
 RcppExport SEXP _GPCMlasso_loglikPCMlasso(SEXP alphaSEXP, SEXP YSEXP, SEXP XSEXP, SEXP ZSEXP, SEXP QSEXP, SEXP qSEXP, SEXP nSEXP, SEXP ISEXP, SEXP pxSEXP, SEXP GHweightsSEXP, SEXP GHnodesSEXP, SEXP acoefsSEXP, SEXP lambdaSEXP, SEXP lambda2SEXP, SEXP cvalueSEXP, SEXP coresSEXP, SEXP weightSEXP, SEXP n_sigmaSEXP, SEXP scale_facSEXP) {

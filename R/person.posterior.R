@@ -119,8 +119,7 @@ person_i <- function(person, person.index, all.lin.preds, sigma,
 #' @param cores Number of cores to be used in parallelized computation.
 #' @param tol The maximum tolerance for numerical integration, 
 #' for more details see \code{\link{pcubature}}.
-#' @return 
-#' \item{}{Vector containing all estimates of trait/person parameters.} 
+#' @return Vector containing all estimates of trait/person parameters.
 #' @author Gunther Schauberger\cr \email{gunther.schauberger@@tum.de}
 #' @references Schauberger, Gunther and Mair, Patrick (2019): A Regularization Approach for the Detection of Differential 
 #' Item Functioning in Generalized Partial Credit Models, \emph{Behavior Research Methods}, \url{https://link.springer.com/article/10.3758/s13428-019-01224-2}
