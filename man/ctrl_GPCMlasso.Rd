@@ -53,8 +53,7 @@ sigma/slope parameters.
 Should be small, only used to stabilize results.}
 
 \item{cvalue}{Internal parameter for the quadratic approximation of the L1
-penalty. Should be sufficiently small. For details see
-\code{\link[gvcm.cat]{cat_control}}.}
+penalty. Should be sufficiently small.}
 
 \item{trace}{Should the trace of the progress (current tuning parameter) be printed?}
 

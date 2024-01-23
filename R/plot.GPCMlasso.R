@@ -157,7 +157,7 @@ plot.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"),
         par.item <- m
       }
     if(u %in% items){
-    plot.item(gamma[,start.gamma:(start.gamma+par.item-1), drop = FALSE], 
+    plothelp.item(gamma[,start.gamma:(start.gamma+par.item-1), drop = FALSE], 
            x$item.names[u], par.item, x$control$lambda, g.range, 
            equal_range, criterion, x.names, log.lambda,
            lambda.lines)
@@ -177,7 +177,7 @@ plot.GPCMlasso <- function(x, select = c("BIC", "AIC", "cAIC", "cv"),
   invisible(x)
 }
 
-plot.item <- function(item, name, par.item, lambda, g.range, equal_range, 
+plothelp.item <- function(item, name, par.item, lambda, g.range, equal_range, 
                       criterion,  x.names, log.lambda, lambda.lines){
 
     if(equal_range){

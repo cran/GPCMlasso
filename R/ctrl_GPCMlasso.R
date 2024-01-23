@@ -17,8 +17,7 @@
 #' sigma/slope parameters.
 #' Should be small, only used to stabilize results.
 #' @param cvalue Internal parameter for the quadratic approximation of the L1
-#' penalty. Should be sufficiently small. For details see
-#' \code{\link[gvcm.cat]{cat_control}}.
+#' penalty. Should be sufficiently small. 
 #' @param trace Should the trace of the progress (current tuning parameter) be printed?
 #' @param folds Number of folds for cross-validation. Only relevant if \code{cv = TRUE} in \code{\link{GPCMlasso}}.
 #' @param cores Number of cores to be used parallel when fitting the model.
